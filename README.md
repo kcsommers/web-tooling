@@ -20,24 +20,8 @@ Prettier, and TypeScript:
 
 ### 1. Install the package
 
-For full details on how to install packages from GPR, check out this
-[guide](https://www.notion.so/1ee28962e8c680eb9505d8f0d6c17d53?pvs=25#1ee28962e8c6804eb8f0cc511748e55c)
-
-Assuming you are authenticated with the registry, install the package by adding
-it to the `devDependecies` field in your `package.json`
-
-```json
-{
-  "devDependencies": {
-    "@peerspace/web-tooling-configs": "X.X.X"
-  }
-}
-```
-
-Then run the install command
-
 ```sh
-npm install
+npm install @kcsommers/web-tooling
 ```
 
 ### 2. Run the Init Command
@@ -46,7 +30,7 @@ The package comes with a CLI tool you can use to initialize your project with
 the proper tooling. After installing, run the init command:
 
 ```sh
-npx ps-web-tooling init
+npx kcsommers-web-tooling init
 ```
 
 You'll be prompted to select:
