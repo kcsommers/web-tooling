@@ -1,4 +1,4 @@
-# web-tooling-configs
+# web-tooling
 
 A collection of reusable, standardized configurations for web development tools
 used at Peerspace. These configs are intended to be used across frontend
@@ -110,7 +110,7 @@ Example tsconfig.json
 
 ---
 
-## Working on web-tooling-configs
+## Working on web-tooling
 
 To work on this package while testing the changes in a consuming app, use
 `npm link`.
@@ -126,7 +126,7 @@ This will create a symlink that consuming apps will reference from their
 this command from the root of the app:
 
 ```sh
-npm link @peerspace/web-tooling-configs
+npm link @kcsommers/web-tooling
 ```
 
 You can then run the package's dev script to watch for file changes and have
