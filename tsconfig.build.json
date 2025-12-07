@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "configs",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "noEmitOnError": true,
+    "noEmit": false,
+    "incremental": false
+  },
+  "include": ["configs/**/*.ts"],
+  "exclude": ["node_modules", "dist", "templates"],
+  "tsc-alias": {
+    "resolveFullPaths": true
+  }
+}

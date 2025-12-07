@@ -1,0 +1,105 @@
+{
+  "name": "@kcsommers/web-tooling",
+  "author": "M Kacy Sommers",
+  "description": "A collection of reusable, standardized configurations for web development tools.",
+  "version": "1.0.0",
+  "repository": "https://github.com/peerspace/gpr",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "eslint",
+    "config",
+    "prettier",
+    "typescript",
+    "web",
+    "frontend",
+    "tooling"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "bin/",
+    "dist/",
+    "templates/",
+    "README.md",
+    "package.json"
+  ],
+  "bin": {
+    "kcsommers-web-tooling": "./bin/cli.mjs"
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0",
+    "build": "rimraf dist && tsc --project tsconfig.build.json && tsc-alias --project tsconfig.build.json && npm run copy:js",
+    "copy:js": "cpx \"configs/**/*.{js,mjs,cjs,json}\" dist",
+    "dev": "concurrently --kill-others \"npm run watch:ts\" \"npm run watch:js\"",
+    "watch:ts": "tsc --watch --preserveWatchOutput --project tsconfig.build.json",
+    "watch:js": "cpx \"configs/**/*.{js,mjs,cjs,json}\" dist --watch",
+    "prepublishOnly": "npm run build",
+    "lint": "echo 'Running linter...' && eslint .",
+    "lint:fix": "eslint . --fix",
+    "type-check": "echo 'Running type checking...' && tsc --noEmit",
+    "analyze": "npm run lint && npm run type-check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "globals": "^16.3.0",
+    "inquirer": "^12.6.0"
+  },
+  "devDependencies": {
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
+    "@types/inquirer": "^9.0.8",
+    "@types/node": "^22.15.9",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "concurrently": "^9.2.0",
+    "cpx": "^1.5.0",
+    "eslint": "^9.26.0",
+    "jiti": "^2.4.2",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint": "^9.26.0",
+    "eslint-config-next": "^15.3.2",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.5.2 || ^4.4.4",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "jiti": "^2.4.2",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
+  },
+  "peerDependenciesMeta": {
+    "eslint-config-next": {
+      "optional": true
+    },
+    "eslint-plugin-react-refresh": {
+      "optional": true
+    }
+  },
+  "exports": {
+    "./eslint/base": "./dist/eslint/base-eslint-config.js",
+    "./eslint/next": "./dist/eslint/next-eslint-config.js",
+    "./eslint/react": "./dist/eslint/react-eslint-config.js",
+    "./eslint/typescript": "./dist/eslint/typescript-eslint-config.js",
+    "./prettier": "./dist/prettier/prettier-config.mjs",
+    "./typescript": "./dist/typescript/tsconfig.base.json"
+  }
+}

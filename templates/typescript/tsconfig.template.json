@@ -1,0 +1,7 @@
+{
+  "extends": "@kcsommers/web-tooling/typescript",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["eslint.config.ts"]
+}
