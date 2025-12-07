@@ -1,7 +1,10 @@
+import { Linter } from "eslint";
 import tseslint from "typescript-eslint";
 import { BaseEslintConfigOptions } from "./base-eslint-config";
 
-const typescriptConfig = (options?: BaseEslintConfigOptions) => [
+const typescriptConfig = (
+  options?: BaseEslintConfigOptions,
+): Linter.Config[] => [
   {
     files: ["**/*.{ts,tsx,cts,mts}"],
     plugins: {

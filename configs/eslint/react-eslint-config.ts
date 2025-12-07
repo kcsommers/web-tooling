@@ -1,10 +1,12 @@
+import { Linter } from "eslint";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+// @ts-expect-error - this is a peer dependency
 import reactRefresh from "eslint-plugin-react-refresh";
 import baseConfig, { BaseEslintConfigOptions } from "./base-eslint-config";
 
-const reactConfig = (options?: BaseEslintConfigOptions) => [
+const reactConfig = (options?: BaseEslintConfigOptions): Linter.Config[] => [
   ...baseConfig({
     ...(options || {}),
     rules: {

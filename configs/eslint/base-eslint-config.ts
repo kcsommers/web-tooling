@@ -1,7 +1,6 @@
 import eslintJs from "@eslint/js";
 import { Linter } from "eslint";
 import * as prettierConfig from "eslint-config-prettier";
-// @ts-expect-error - no types for this plugin
 import importPlugin from "eslint-plugin-import";
 import prettierPlugin from "eslint-plugin-prettier";
 import globals from "globals";
